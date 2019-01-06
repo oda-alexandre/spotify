@@ -7,9 +7,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 sudo \
 ca-certificates \
 wget \
+gnupg \
 dirmngr \
 locales \
-gnupg
+alsa-utils \
+libasound2 \
+libasound2-plugins \
+pulseaudio \
+pulseaudio-utils \
+libcanberra-gtk-module \
+libcanberra-gtk3-module \
+libgl1-mesa-dri \
+libgl1-mesa-glx \
+mesa-utils \
+xdg-utils
 
 # SELECTION LANGUE FRANCAISE
 ENV LANG fr_FR.UTF-8
@@ -19,11 +30,7 @@ RUN echo fr_FR.UTF-8 UTF-8 > /etc/locale.gen && locale-gen
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 && \
 echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list && \
 apt-get update && apt-get install -y --no-install-recommends \
-alsa-utils \
-libgl1-mesa-dri \
-libgl1-mesa-glx \
-spotify-client \
-xdg-utils
+spotify-client
 
 # NETTOYAGE
 RUN apt-get --purge autoremove -y \
