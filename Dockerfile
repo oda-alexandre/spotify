@@ -34,8 +34,7 @@ spotify-client
 
 # NETTOYAGE
 RUN apt-get --purge autoremove -y \
-wget \
-gnupg && \
+wget && \
 apt-get autoclean -y && \
 rm /etc/apt/sources.list && \
 rm -rf /var/cache/apt/archives/* && \
@@ -52,8 +51,5 @@ USER spotify
 # SELECTION ESPACE DE TRAVAIL
 WORKDIR /home/spotify
 
-# AMELIORATION DU TEXTE DE LA BARRE DE RECHERCHE
-RUN echo "QLineEdit { color: #000 }" > /home/spotify/spotify-override.css
-
 # COMMANDE AU DEMARRAGE DU CONTENEUR
-CMD spotify -stylesheet=/home/spotify/spotify-override.css
+CMD spotify
