@@ -5,14 +5,14 @@
 
 ## INDEX
 
-- [Build Docker](#BUILD)
+- [Badges](#BADGES)
 - [Introduction](#INTRODUCTION)
 - [Prerequis](#PREREQUIS)
 - [Installation](#INSTALLATION)
 - [License](#LICENSE)
 
 
-## BUILD DOCKER
+## Badges
 
 [![spotify docker build](https://img.shields.io/docker/build/alexandreoda/spotify.svg)](https://hub.docker.com/r/alexandreoda/spotify)
 
