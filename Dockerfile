@@ -44,7 +44,7 @@ apt-get update && apt-get install -y --no-install-recommends \
 spotify-client && \
 
 # NETTOYAGE
-RUN apt-get --purge autoremove -y \
+apt-get --purge autoremove -y \
 wget && \
 apt-get autoclean -y && \
 rm /etc/apt/sources.list && \

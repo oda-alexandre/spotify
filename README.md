@@ -1,6 +1,6 @@
 # SPOTIFY
 
-![spotify](https://raw.githubusercontent.com/oda-alexandre/spotify/master/img/logo-spotify.png) ![docker](https://raw.githubusercontent.com/oda-alexandre/spotify/master/img/logo-docker.png)
+[![dockeri.co](https://dockeri.co/image/alexandreoda/spotify)](https://hub.docker.com/r/alexandreoda/spotify)
 
 
 ## INDEX
@@ -12,14 +12,21 @@
 - [License](#LICENSE)
 
 
-## Badges
+## BADGES
 
-[![spotify docker build](https://img.shields.io/docker/build/alexandreoda/spotify.svg)](https://hub.docker.com/r/alexandreoda/spotify)
+[![version](https://images.microbadger.com/badges/version/alexandreoda/spotify.svg)](https://microbadger.com/images/alexandreoda/spotify)
+[![size](https://images.microbadger.com/badges/image/alexandreoda/spotify.svg)](https://microbadger.com/images/alexandreoda/spotify")
+[![build](https://img.shields.io/docker/build/alexandreoda/spotify.svg)](https://hub.docker.com/r/alexandreoda/spotify)
+[![automated](https://img.shields.io/docker/automated/alexandreoda/spotify.svg)](https://hub.docker.com/r/alexandreoda/spotify)
 
 
 ## INTRODUCTION
 
-Ce repository contient le fichier Dockerfile de [Spotify](https://www.spotify.com/fr/) pour [docker](https://www.docker.com), mis à jour automatiquement dans le [docker hub](https://hub.docker.com/r/alexandreoda/spotify/) public.
+Ce repository contient le fichier Dockerfile de
+
+- [spotify](https://www.spotify.com/fr/)
+
+Mis à jour automatiquement dans le [docker hub public](https://hub.docker.com/r/alexandreoda/spotify/).
 
 
 ## PREREQUIS
