@@ -49,7 +49,7 @@ wget && \
 apt-get autoclean -y && \
 rm /etc/apt/sources.list && \
 rm -rf /var/cache/apt/archives/* && \
-rm -rf /var/lib/apt/lists/* && \
+rm -rf /var/lib/apt/lists/*
 
 # SELECTION UTILISATEUR
 USER ${USER}
