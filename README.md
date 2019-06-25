@@ -1,6 +1,6 @@
 # SPOTIFY
 
-[![dockeri.co](https://dockeri.co/image/alexandreoda/spotify)](https://hub.docker.com/r/alexandreoda/spotify)
+<img src="https://flyclipart.com/thumb2/spotify-logo-all-logos-world-logos-wallpaper-10065.png" />
 
 
 ## INDEX
@@ -14,10 +14,7 @@
 
 ## BADGES
 
-[![version](https://images.microbadger.com/badges/version/alexandreoda/spotify.svg)](https://microbadger.com/images/alexandreoda/spotify)
-[![size](https://images.microbadger.com/badges/image/alexandreoda/spotify.svg)](https://microbadger.com/images/alexandreoda/spotify")
-[![build](https://img.shields.io/docker/build/alexandreoda/spotify.svg)](https://hub.docker.com/r/alexandreoda/spotify)
-[![automated](https://img.shields.io/docker/automated/alexandreoda/spotify.svg)](https://hub.docker.com/r/alexandreoda/spotify)
+[![pipeline status](https://gitlab.com/oda-alexandre/spotify/badges/master/pipeline.svg)](https://gitlab.com/oda-alexandre/spotify/commits/master)
 
 
 ## INTRODUCTION
