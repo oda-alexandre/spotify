@@ -57,4 +57,4 @@ rm -rf /var/lib/apt/lists/*
 USER ${USER}
 
 # START THE CONTAINER
-CMD spotify
+CMD spotify \
