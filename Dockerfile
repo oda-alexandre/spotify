@@ -1,12 +1,14 @@
+# IMAGE TO USE
 FROM debian:stretch-slim
 
+# MAINTAINER
 MAINTAINER https://www.oda-alexandre.com/
 
 # VARIABLES
 ENV USER spotify
 ENV LANG fr_FR.UTF-8
 
-# INSTALLATION DES PREREQUIS
+# INSTALL PACKAGES
 RUN apt-get update && apt-get install -y --no-install-recommends \
 sudo \
 ca-certificates \
@@ -26,24 +28,24 @@ libgl1-mesa-glx \
 mesa-utils \
 xdg-utils && \
 
-# SELECTION DE LA LANGUE FRANCAISE
+# CHANGE LOCALES
 echo ${LANG} > /etc/locale.gen && locale-gen && \
 
-# AJOUT UTILISATEUR
+# ADD USER
 useradd -d /home/${USER} -m ${USER} && \
 passwd -d ${USER} && \
 adduser ${USER} sudo
 
-# SELECTION ESPACE DE TRAVAIL
+# SELECT WORKING SPACE
 WORKDIR /home/${USER}
 
-# INSTALLATION DE L'APPLICATION ET DE LA CLEF GPG
+# INSTALL APP AND OF THE KEY GPG
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 && \
 echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list && \
 apt-get update && apt-get install -y --no-install-recommends \
 spotify-client && \
 
-# NETTOYAGE
+# CLEANING
 apt-get --purge autoremove -y \
 wget && \
 apt-get autoclean -y && \
@@ -51,8 +53,8 @@ rm /etc/apt/sources.list && \
 rm -rf /var/cache/apt/archives/* && \
 rm -rf /var/lib/apt/lists/*
 
-# SELECTION UTILISATEUR
+# SELECT USER
 USER ${USER}
 
-# COMMANDE AU DEMARRAGE DU CONTENEUR
+# START THE CONTAINER
 CMD spotify
