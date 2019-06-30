@@ -1,6 +1,6 @@
 # SPOTIFY
 
-<img src="https://flyclipart.com/thumb2/spotify-logo-all-logos-world-logos-wallpaper-10065.png" />
+<img src="https://flyclipart.com/thumb2/spotify-logo-all-logos-world-logos-wallpaper-10065.png" width="200" height="200"/>
 
 
 ## INDEX
