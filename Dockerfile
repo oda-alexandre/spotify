@@ -1,15 +1,12 @@
-# IMAGE TO USE
 FROM debian:stretch-slim
 
-# MAINTAINER
 MAINTAINER https://www.oda-alexandre.com/
 
-# VARIABLES
 ENV USER spotify
 ENV LANG fr_FR.UTF-8
 
-# INSTALL PACKAGES
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
+apt-get update && apt-get install -y --no-install-recommends \
 sudo \
 ca-certificates \
 wget \
@@ -26,26 +23,26 @@ libcanberra-gtk3-module \
 libgl1-mesa-dri \
 libgl1-mesa-glx \
 mesa-utils \
-xdg-utils && \
+xdg-utils
 
-# CHANGE LOCALES
-echo ${LANG} > /etc/locale.gen && locale-gen && \
+RUN echo -e '\033[36;1m ******* CHANGE LOCALES ******** \033[0m' && \
+echo ${LANG} > /etc/locale.gen && locale-gen
 
-# ADD USER
+RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
 useradd -d /home/${USER} -m ${USER} && \
 passwd -d ${USER} && \
 adduser ${USER} sudo
 
-# SELECT WORKING SPACE
+RUN echo -e '\033[36;1m ******* SELECT WORKING SPACE ******** \033[0m'
 WORKDIR /home/${USER}
 
-# INSTALL APP AND OF THE KEY GPG
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 && \
+RUN echo -e '\033[36;1m ******* INSTALL APP & KEY GPG ******** \033[0m' && \
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90 && \
 echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list && \
 apt-get update && apt-get install -y --no-install-recommends \
-spotify-client && \
+spotify-client
 
-# CLEANING
+RUN echo -e '\033[36;1m ******* CLEANING ******** \033[0m' && \
 apt-get --purge autoremove -y \
 wget && \
 apt-get autoclean -y && \
@@ -53,8 +50,8 @@ rm /etc/apt/sources.list && \
 rm -rf /var/cache/apt/archives/* && \
 rm -rf /var/lib/apt/lists/*
 
-# SELECT USER
+RUN echo -e '\033[36;1m ******* SELECT USER ******** \033[0m'
 USER ${USER}
 
-# START THE CONTAINER
+RUN echo -e '\033[36;1m ******* CONTAINER START COMMAND ******** \033[0m'
 CMD spotify \
