@@ -5,6 +5,7 @@ LABEL authors https://www.oda-alexandre.com/
 ENV USER spotify
 ENV HOME /home/${USER}
 ENV LOCALES fr_FR.UTF-8
+ENV KEY 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m'; \
   apt-get update && apt-get install -y --no-install-recommends \
@@ -37,10 +38,10 @@ RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m'; \
 RUN echo -e '\033[36;1m ******* SELECT WORKING SPACE ******** \033[0m'
 WORKDIR ${HOME}
 
-RUN echo -e '\033[36;1m ******* INSTALL APP & KEY GPG ******** \033[0m'; \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90; \
-  echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list; \
-  apt-get update && apt-get install -y --no-install-recommends \
+RUN echo -e '\033[36;1m ******* INSTALL APP & KEY GPG ******** \033[0m' && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ${KEY} && \
+  echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list && \
+  apt update && apt install -y --no-install-recommends \
   spotify-client
   
 RUN echo -e '\033[36;1m ******* SELECT USER ******** \033[0m'
