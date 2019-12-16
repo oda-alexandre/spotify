@@ -5,7 +5,7 @@ LABEL authors https://www.oda-alexandre.com/
 ENV USER spotify
 ENV HOME /home/${USER}
 ENV LOCALES fr_FR.UTF-8
-ENV KEY 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
+ENV KEY 4773BD5E130D1D45
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m'; \
   apt-get update && apt-get install -y --no-install-recommends \
