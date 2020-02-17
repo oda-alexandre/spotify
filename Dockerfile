@@ -1,11 +1,11 @@
 FROM debian:stretch-slim
 
-LABEL authors https://www.oda-alexandre.com/
+LABEL authors https://www.oda-alexandre.com
 
 ENV USER spotify
 ENV HOME /home/${USER}
 ENV LOCALES fr_FR.UTF-8
-ENV KEY 4773BD5E130D1D45
+ENV FINGERPRINT 4773BD5E130D1D45
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   apt-get update && apt-get install -y --no-install-recommends \
@@ -38,8 +38,8 @@ RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
 RUN echo -e '\033[36;1m ******* SELECT WORKING SPACE ******** \033[0m'
 WORKDIR ${HOME}
 
-RUN echo -e '\033[36;1m ******* INSTALL APP & KEY GPG ******** \033[0m' && \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ${KEY} && \
+RUN echo -e '\033[36;1m ******* INSTALL APP & FINGERPRINT GPG ******** \033[0m' && \
+  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ${FINGERPRINT} && \
   echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list.d/spotify.list && \
   apt update && apt install -y --no-install-recommends \
   spotify-client
