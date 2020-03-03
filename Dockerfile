@@ -4,7 +4,6 @@ LABEL authors https://www.oda-alexandre.com
 
 ENV USER spotify
 ENV HOME /home/${USER}
-ENV LOCALES fr_FR.UTF-8
 ENV FINGERPRINT 4773BD5E130D1D45
 
 RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
@@ -14,7 +13,6 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   wget \
   gnupg \
   dirmngr \
-  locales \
   alsa-utils \
   libasound2 \
   libasound2-plugins \
@@ -26,9 +24,6 @@ RUN echo -e '\033[36;1m ******* INSTALL PACKAGES ******** \033[0m' && \
   libgl1-mesa-glx \
   mesa-utils \
   xdg-utils
-
-RUN echo -e '\033[36;1m ******* CHANGE LOCALES ******** \033[0m' && \
-  locale-gen ${LOCALES}
 
 RUN echo -e '\033[36;1m ******* ADD USER ******** \033[0m' && \
   useradd -d ${HOME} -m ${USER} && \
