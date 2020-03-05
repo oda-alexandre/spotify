@@ -10,6 +10,8 @@
   - [INTRODUCTION](#introduction)
   - [PREREQUISITES](#prerequisites)
   - [INSTALL](#install)
+    - [DOCKER RUN](#docker-run)
+    - [DOCKER COMPOSE](#docker-compose)
   - [LICENSE](#license)
 
 ## BADGES
@@ -36,7 +38,34 @@ Use [docker](https://www.docker.com)
 
 ## INSTALL
 
-```docker run -d --name spotify -v ${HOME}:/home/spotify -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /dev/snd:/dev/snd -v /dev/shm:/dev/shm -v /var/run/dbus:/var/run/dbus -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native --group-add $(getent group audio | cut -d: -f3) -e DISPLAY alexandreoda/spotify```
+### DOCKER RUN
+
+```docker run -d --name spotify -v ${HOME}:/home/spotify -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /dev/shm:/dev/shm -v /var/run/dbus:/var/run/dbus -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native --group-add audio --device /dev/snd  -e DISPLAY alexandreoda/spotify
+```
+
+### DOCKER COMPOSE
+
+```yml
+version: "3.7"
+
+services:
+  spotify:
+    container_name: spotify
+    image: alexandreoda/spotify
+    restart: "no"
+    privileged: false
+    devices:
+      - /dev/snd
+    environment:
+      - DISPLAY
+      - PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native
+    volumes:
+      - "${HOME}:/home/spotify"
+      - "/tmp/.X11-unix/:/tmp/.X11-unix/"
+      - "/dev/shm:/dev/shm"
+      - "/var/run/dbus:/var/run/dbus"
+      - "${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native"
+```
 
 ## LICENSE
 
