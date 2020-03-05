@@ -41,7 +41,18 @@ Use [docker](https://www.docker.com)
 ### DOCKER RUN
 
 ```\
-docker  run -d --name spotify -v ${HOME}:/home/spotify -v /tmp/.X11-unix/:/tmp/.X11-unix/ -v /dev/shm:/dev/shm -v /var/run/dbus:/var/run/dbus -e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native -v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native --group-add audio --device /dev/snd  -e DISPLAY alexandreoda/spotify
+docker run -d 
+--name spotify 
+--group-add audio 
+--device /dev/snd 
+-e DISPLAY 
+-e PULSE_SERVER=unix:${XDG_RUNTIME_DIR}/pulse/native 
+-v ${HOME}:/home/spotify 
+-v /tmp/.X11-unix/:/tmp/.X11-unix/ 
+-v /dev/shm:/dev/shm 
+-v /var/run/dbus:/var/run/dbus 
+-v ${XDG_RUNTIME_DIR}/pulse/native:${XDG_RUNTIME_DIR}/pulse/native 
+alexandreoda/spotify
 ```
 
 ### DOCKER COMPOSE
